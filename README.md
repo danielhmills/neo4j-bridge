@@ -1,6 +1,6 @@
 # Neo4j Bridge for Virtuoso
-![DBeaver Example](https://www.openlinksw.com/DAV/www2.openlinksw.com/data/gifs/neo4j_bridge_dbeaver.gif)
 This repository contains a set of Virtuoso/PL procedures that allow Virtuoso to act as a bridge to a Neo4j graph database via HTTP calls. It includes functions for authentication management, utility string transformation, and the core query bridge itself.
+![DBeaver Example](https://www.openlinksw.com/DAV/www2.openlinksw.com/data/gifs/neo4j_bridge_dbeaver.gif)
 
 ## Overview
 
