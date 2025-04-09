@@ -1,5 +1,5 @@
 # Neo4j Bridge for Virtuoso
-
+![DBeaver Example](https://www.openlinksw.com/DAV/www2.openlinksw.com/data/gifs/neo4j_bridge_dbeaver.gif)
 This repository contains a set of Virtuoso/PL procedures that allow Virtuoso to act as a bridge to a Neo4j graph database via HTTP calls. It includes functions for authentication management, utility string transformation, and the core query bridge itself.
 
 ## Overview
@@ -98,7 +98,7 @@ Use a Derived Table or a Procedure View to integrate the result set within Virtu
 ```sql
 SELECT *
 FROM neo4j_bridge(query)(name VARCHAR) x
-WHERE query = 'MATCH p:Person RETURN p.name'
+WHERE query = 'MATCH (p:Person) RETURN p.name'
 ```
 ![Derived Table Test](https://www.openlinksw.com/DAV/www2.openlinksw.com/data/gifs/neo4j_bridge_derived_table.gif)
 
@@ -106,7 +106,7 @@ WHERE query = 'MATCH p:Person RETURN p.name'
 ```sql
 CREATE PROCEDURE VIEW neo4j_bridge_test AS neo4j_bridge(query)(name VARCHAR);
 SELECT * FROM neo4j_bridge_test
-WHERE query = 'MATCH p:Person RETURN p.name'
+WHERE query = 'MATCH (p:Person) RETURN p.name'
 ```
 #### Creating Tables and Views of Result Sets
 SQL Tables and views of the result sets can be created using `CREATE TABLE` and `CREATE VIEW` with a derived table or Procedure/Query View.
