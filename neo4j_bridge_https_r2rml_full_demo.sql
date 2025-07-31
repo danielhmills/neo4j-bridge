@@ -74,7 +74,7 @@ INSERT INTO GRAPH <urn:neo4j:r2ml:mapping>
     rr:subjectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/neo4j-demo/{relationship_hash}#this"; rr:class neo4j:PropertyAnnotation; rr:graph <http://demo.openlinksw.com/neo4j/lpg2rdf#> ];
     rr:predicateObjectMap [ rr:predicateMap [ rr:constant rdfs:label ] ; rr:objectMap [ rr:column "relationship_property_key" ]; ];
     rr:predicateObjectMap [ rr:predicateMap [ rr:constant neo4j:sourceNode ] ; rr:objectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/neo4j-demo/{entity1_id}#this" ]; ] ;
-    rr:predicateObjectMap [ rr:predicateMap [ rr:constant neo4j:nodeRelationship ] ; rr:objectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/schemas/neo4j-demo/{relationship_property_key}#this" ]; ] ;
+    rr:predicateObjectMap [ rr:predicateMap [ rr:constant neo4j:nodeRelationship ] ; rr:objectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/schemas/neo4j-demo/#{relationship_property_key}" ]; ] ;
     rr:predicateObjectMap [ rr:predicateMap [ rr:constant neo4j:targetNode ] ; rr:objectMap [ rr:termType rr:IRI  ; rr:template "http://demo.openlinksw.com/neo4j-demo/{entity2_id}#this" ]; ] ;
     rr:predicateObjectMap [ rr:predicateMap [ rr:constant neo4j:targetValue ] ; rr:objectMap [ rr:column "relationship_property_value" ]; ] .
 };
