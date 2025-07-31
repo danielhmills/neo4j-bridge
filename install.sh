@@ -1,3 +1,17 @@
+-- Check for Linked Data Cartridges VAD installation, and install if missing. 
+CREATE FUNCTION DB.DBA.neo4j_bridge_cartridge_vad_install(){
+ DECLARE query INTEGER;
+ query := (SELECT COUNT( DISTINCT name) FROM vad_list_packages()(name VARCHAR) x WHERE LCASE(name) = 'cartridges');
+ IF(query > 0){
+  RETURN 0;
+ }
+ ELSE{
+   VAD_INSTALL('../vad/cartridges_dav.vad',0);
+   RETURN 1;
+  };
+};
+
+
 -- Authentication Handler
 CREATE PROCEDURE neo4j_bridge_auth_values(IN neo4j_host VARCHAR, IN token_type VARCHAR := null, IN token_value VARCHAR := null, IN registry_mode VARCHAR := 'add'){
     DECLARE auth_value VARCHAR;
