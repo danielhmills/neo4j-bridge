@@ -1,5 +1,5 @@
 -- Check for Linked Data Cartridges VAD installation, and install if missing. 
-CREATE FUNCTION DB.DBA.neo4j_bridge_cartridge_vad_install(){
+CREATE FUNCTION neo4j_bridge_cartridge_vad_install(){
  DECLARE query INTEGER;
  query := (SELECT COUNT( DISTINCT name) FROM vad_list_packages()(name VARCHAR) x WHERE LCASE(name) = 'cartridges');
  IF(query > 0){
