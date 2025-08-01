@@ -86,7 +86,7 @@ Example
  isql {host} {port} {username} {password} install.sql
 ```
 
-**Important Note**: This script will also install the Cartridges and RDB2RDB Virtuoso Application Distributions (VAD).
+**Important Note**: This script will also install the **Cartridges** and **RDB2RDB** Virtuoso Application Distributions (VAD).
 
 3. Add your Neo4j Instance Credentials using: `neo4j_bridge_auth_values(host, token_type, token_value, 'add')`
 
