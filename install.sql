@@ -1,15 +1,17 @@
 -- Check for Linked Data Cartridges VAD installation, and install if missing. 
-CREATE FUNCTION neo4j_bridge_cartridge_vad_install(){
- DECLARE query INTEGER;
- query := (SELECT COUNT( DISTINCT name) FROM vad_list_packages()(name VARCHAR) x WHERE LCASE(name) = 'cartridges');
- IF(query > 0){
-  RETURN 0;
- }
- ELSE{
-   VAD_INSTALL('../vad/cartridges_dav.vad',0);
+CREATE FUNCTION neo4j_bridge_dependency_install(){
+ DECLARE cartridges_check, r2rml_check INTEGER;
+
+ IF((SELECT COUNT( DISTINCT name) FROM vad_list_packages()(name VARCHAR) x WHERE LCASE(name) = 'cartridges') <> 1){
+   EXEC('VAD_INSTALL(\'../vad/cartridges_dav.vad\',0)');
+ };
+ IF((SELECT COUNT( DISTINCT name) FROM vad_list_packages()(name VARCHAR) x WHERE LCASE(name) = 'rdb2rdf') <> 1){
+  EXEC('VAD_INSTALL(\'../vad/rdb2rdf_dav.vad\',0)');
+ };
    RETURN 1;
-  };
 };
+
+neo4j_bridge_dependency_install();
 
 
 -- Authentication Handler
