@@ -74,6 +74,8 @@ WHERE query = 'MATCH (p:Person) RETURN p.name LIMIT 5'
 
 ### Installation
 
+
+
 1. Navigate to your Virtuoso installation's `database` directory, and run `git clone https://github.com/danielhmills/neo4j-bridge.git`
 > Advanced Users: You can also clone the repo to a location listed in your virtuoso.ini config's DIRS_ALLOWED parameter.
 
@@ -83,6 +85,8 @@ Example
 ```
  isql {host} {port} {username} {password} install.sql
 ```
+
+**Important Note**: This script will also install the Cartridges and RDB2RDB Virtuoso Application Distributions (VAD).
 
 3. Add your Neo4j Instance Credentials using: `neo4j_bridge_auth_values(host, token_type, token_value, 'add')`
 
